@@ -17,7 +17,7 @@ const Register = () => {
       return setError('Passwords do not match');
     }
     try {
-      await axios.post('http://127.0.0.1:5000/api/auth/register', formData);
+      await axios.post('/api/auth/register', formData);
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.msg || 'Registration failed');

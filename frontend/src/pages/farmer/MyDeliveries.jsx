@@ -8,7 +8,7 @@ const MyDeliveries = () => {
     const fetchDeliveries = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://127.0.0.1:5000/api/farmer/deliveries', {
+        const res = await axios.get('/api/farmer/deliveries', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setDeliveries(res.data);

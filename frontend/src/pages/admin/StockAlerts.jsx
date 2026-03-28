@@ -8,7 +8,7 @@ const StockAlerts = () => {
     const fetchAlerts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://127.0.0.1:5000/api/admin/alerts', {
+        const res = await axios.get('/api/admin/alerts', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setAlerts(res.data);

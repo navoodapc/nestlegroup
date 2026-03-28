@@ -9,7 +9,7 @@ const Shipments = () => {
     const fetchShipments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://127.0.0.1:5000/api/admin/shipments', {
+        const res = await axios.get('/api/admin/shipments', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setShipments(res.data);

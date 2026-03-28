@@ -14,7 +14,7 @@ const SubmitSupply = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://127.0.0.1:5000/api/farmer/supply', formData, {
+      await axios.post('/api/farmer/supply', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSuccess('Supply logged successfully! Nestlé will arrange a truck for collection.');

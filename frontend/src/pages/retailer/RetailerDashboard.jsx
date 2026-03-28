@@ -14,7 +14,7 @@ const RetailerDashboard = () => {
   const fetchStocks = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://127.0.0.1:5000/api/retailer/stocks', {
+      const res = await axios.get('/api/retailer/stocks', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setStocks(res.data);
@@ -26,7 +26,7 @@ const RetailerDashboard = () => {
   const handleUpdate = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://127.0.0.1:5000/api/retailer/stocks/${editingStock.product}`, { stockPercent: newStockVal }, {
+      await axios.put(`/api/retailer/stocks/${editingStock.product}`, { stockPercent: newStockVal }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setShowModal(false);

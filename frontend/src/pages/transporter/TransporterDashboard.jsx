@@ -19,7 +19,7 @@ const TransporterDashboard = () => {
   const fetchShipment = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://127.0.0.1:5000/api/transporter/shipment', {
+      const res = await axios.get('/api/transporter/shipment', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setShipment(res.data);
@@ -31,7 +31,7 @@ const TransporterDashboard = () => {
   const handleUpdateLocation = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://127.0.0.1:5000/api/transporter/shipment/${shipment.id}`, 
+      await axios.put(`/api/transporter/shipment/${shipment.id}`, 
         { status: statusVal, currLocation }, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -48,7 +48,7 @@ const TransporterDashboard = () => {
     if(!window.confirm('Are you sure you want to mark this shipment as Delivered?')) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://127.0.0.1:5000/api/transporter/shipment/${shipment.id}`, 
+      await axios.put(`/api/transporter/shipment/${shipment.id}`, 
         { status: 'Delivered', currLocation: 'Destination' }, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -64,7 +64,7 @@ const TransporterDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       // For demo, we just update status to Delayed and close
-      await axios.put(`http://127.0.0.1:5000/api/transporter/shipment/${shipment.id}`, 
+      await axios.put(`/api/transporter/shipment/${shipment.id}`, 
         { status: 'Delayed', currLocation: 'Issue Reported: ' + issueText }, {
         headers: { Authorization: `Bearer ${token}` }
       });

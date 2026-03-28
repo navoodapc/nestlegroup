@@ -11,7 +11,7 @@ const Users = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://127.0.0.1:5000/api/admin/users', {
+      const res = await axios.get('/api/admin/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(res.data);
@@ -23,7 +23,7 @@ const Users = () => {
   const updateStatus = async (id, status) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://127.0.0.1:5000/api/admin/users/${id}/status`, { status }, {
+      await axios.put(`/api/admin/users/${id}/status`, { status }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchUsers();

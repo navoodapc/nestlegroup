@@ -11,7 +11,7 @@ const FarmerDashboard = () => {
   const fetchDemands = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://127.0.0.1:5000/api/farmer/demands', {
+      const res = await axios.get('/api/farmer/demands', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setDemands(res.data);
@@ -23,7 +23,7 @@ const FarmerDashboard = () => {
   const handleUpdateStatus = async (id, status) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://127.0.0.1:5000/api/farmer/demands/${id}`, { status }, {
+      await axios.put(`/api/farmer/demands/${id}`, { status }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchDemands();
